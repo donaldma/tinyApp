@@ -35,7 +35,7 @@ app.post("/urls", (req, res) => {
   console.log(req.body);
   var shortURL = random();
   var longURL = req.body.longURL;
-  var newURL = 'http://localhost:8080/u/' + shortURL;
+  var newURL = 'http://192.168.0.22:8080/u/' + shortURL;
   urlDatabase[shortURL] = longURL;
   res.send(`<html><body>Your new short url is --> ${newURL}<p><a href= "${newURL}" target="_blank">[Open in new window/tab]</a><p><a href="/urls">[Return to home]</a></p></p></body></html>`);
 });
