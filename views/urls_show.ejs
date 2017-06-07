@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TinyApp</title>
+  <style>
+    table, th, td {
+      padding: 5px;
+      border: 1px solid black;
+      border-collapse: collapse;
+      font-size: 150%,
+    }
+  </style>
+</head>
+<body>
+  <% include partials/_header.ejs %>
+  <p><a href="https://www.google.com">Shorten URL</a></p>
+  <table style="width:40%">
+    <tr>
+      <th>Shortened URL</th>
+      <th>Original URL</th>
+    </tr>
+    <tr>
+      <td>
+        <h3><%= shortURL %></h3>
+      </td>
+      <td>
+        <h3><%= orgURL %></h3>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>TinyApp</title>
+  <style>
+    table, th, td {
+      padding: 5px;
+      border: 1px solid black;
+      border-collapse: collapse;
+    }
+  </style>
+</head>
+<body>
+  <% include partials/_header.ejs %>
+  <p><a href="https://www.google.com">Shorten URL</a></p>
+  <table style="width:40%">
+    <tr>
+      <th>Original URL</th>
+      <th>Shortened URL</th>
+    </tr>
+    <tr>
+      <td style="list-style-type:none">
+        <% for(var index in urls) {%>
+          <li><%= urls[index] %></li>
+        <% } %>
+      </td>
+      <td style="list-style-type:none">
+        <% for(var index in urls) {%>
+          <li><%= index %></li>
+        <% } %>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
