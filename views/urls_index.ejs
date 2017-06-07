@@ -7,26 +7,38 @@
       padding: 5px;
       border: 1px solid black;
       border-collapse: collapse;
+      font-family: 'Ultra', sans-serif;
+      margin: 30px 0 0 435px;
+      line-height: 2;
+      text-align: center;
+      font-size: 95%;
+    }
+    h2 {
+      margin: 20px 0 0 650px;
+    }
+    p {
+      margin: 0 0 0 600px;
     }
   </style>
 </head>
 <body>
   <% include partials/_header.ejs %>
-  <p><a href="/urls/new">Shorten URL</a></p>
+  <p><a href="/urls/new">[Click here to shorten a new URL]</a></p>
+  <h2>URL History</h2>
   <table style="width:40%">
     <tr>
       <th>Original URL</th>
-      <th>Shortened URL</th>
+      <th>Shortened URL<br>(Click for details)</br></th>
     </tr>
     <tr>
       <td style="list-style-type:none">
         <% for(var index in urls) {%>
-          <li><%= urls[index] %></li>
+          <li><%= urls[index]%></li>
         <% } %>
       </td>
       <td style="list-style-type:none">
         <% for(var index in urls) {%>
-          <li><%= index %></li>
+          <li><a href="/urls/<%= index %>"><%= index %></a></li>
         <% } %>
       </td>
     </tr>

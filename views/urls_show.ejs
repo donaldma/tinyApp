@@ -1,32 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <title>TinyApp</title>
-  <style>
-    table, th, td {
-      padding: 5px;
-      border: 1px solid black;
-      border-collapse: collapse;
-      font-size: 150%,
-    }
-  </style>
-</head>
-<body>
-  <% include partials/_header.ejs %>
-  <p><a href="https://www.google.com">Shorten URL</a></p>
-  <table style="width:40%">
-    <tr>
-      <th>Shortened URL</th>
-      <th>Original URL</th>
-    </tr>
-    <tr>
-      <td>
-        <%= shortURL %>
-      </td>
-      <td>
-        <%= orgURL %>
-      </td>
-    </tr>
-  </table>
-</body>
+  <head>
+    <title>TinyApp</title>
+    <style>
+      table, th, td {
+        padding: 15px;
+        border: 1px solid black;
+        border-collapse: collapse;
+        margin: 30px 0 0 430px;
+        font-family: 'Ultra', sans-serif;
+        font-size: 100%;
+        text-align: center;
+      }
+      h2 {
+        margin: 0 0 0 650px;
+        font-family: 'Ultra', sans-serif;
+      }
+      p {
+        margin: 20px 0 0 430px;
+      }
+    </style>
+  </head>
+  <body>
+    <% include partials/_header.ejs %>
+    <h2>URL Details</h2>
+    <table style="width:40%">
+      <tr>
+        <th>Shortened URL</th>
+        <th>Original URL</th>
+      </tr>
+      <tr>
+        <td>
+          <%= shortURL %>
+        </td>
+        <td>
+          <%= orgURL %>
+        </td>
+      </tr>
+    </table>
+    <p><a href="/urls">[Return to home]</a></p>
+  </body>
 </html>

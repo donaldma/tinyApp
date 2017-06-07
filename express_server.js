@@ -1,6 +1,6 @@
 const express = require("express");
 var app = express();
-var PORT = process.env.PORT || 8080; // default port 8080
+var PORT = process.env.PORT || 8080;
 const bodyParser = require("body-parser");
 var urlDatabase = {
   "b2xVn2": "http://www.lighthouselabs.ca",
@@ -14,17 +14,17 @@ const random = function generateRandomString() {
   for(var i = 0; i < 6; i++) {
     newID += possible.charAt(Math.floor(Math.random() * possible.length));
   }
-    return newID;
-}
+  return newID;
+};
 
 app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({extended: true}));
 
 app.get("/u/:shortURL", (req, res) => {
-    var key = req.params.shortURL;
-    let longURL = urlDatabase[key];
-    res.redirect(longURL);
+  var key = req.params.shortURL;
+  let longURL = urlDatabase[key];
+  res.redirect(longURL);
 });
 
 app.get("/urls/new", (req, res) => {
@@ -33,11 +33,11 @@ app.get("/urls/new", (req, res) => {
 
 app.post("/urls", (req, res) => {
   console.log(req.body);
-  var shortURL = random()
-  var longURL = req.body.longURL
-  var newURL = 'http://localhost:8080/u/' + shortURL
-  urlDatabase[shortURL] = longURL
-  res.send(`<html><body>Your new short url is --> <a href= "${newURL}">${newURL}</a></body></html>`);
+  var shortURL = random();
+  var longURL = req.body.longURL;
+  var newURL = 'http://localhost:8080/u/' + shortURL;
+  urlDatabase[shortURL] = longURL;
+  res.send(`<html><body>Your new short url is --> ${newURL}<p><a href= "${newURL}" target="_blank">[Open in new window/tab]</a><p><a href="/urls">[Return to home]</a></p></p></body></html>`);
 });
 
 app.get("/urls", (req, res) => {
@@ -52,6 +52,7 @@ app.get("/urls/:id", (req, res) => {
     shortURL: req.params.id,
     orgURL: valueofDb
   });
+  res.redirect(orgURL);
 });
 
 app.get("/", (req, res) => {
@@ -67,5 +68,5 @@ app.get("/hello", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}!`);
+  console.log(`Listening on port ${PORT}...`);
 });

@@ -1,12 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head></head>
-  <body style="font-size:20px; padding:50px;">
+  <head>
+    <title>TinyApp</title>
+    <style>
+      p {
+        margin: 50px 0 0 470px;
+      }
+    </style>
+  </head>
+  <body>
     <% include partials/_header %>
-    <form action="/urls" method="POST" style="margin:150px;">
+    <form action="/urls" method="POST" style="margin: 80px 0  0 470px; font-family: 'Ultra', sans-serif;font-size: 20px;">
       <label for="longURL">Enter a URL:</label>
-      <input id="longURL" type="text" name="longURL" placeholder="http://" style="width: 300px">
-      <input type="submit" value="Submit">
+      <input id="longURL" type="text" name="longURL" placeholder="http://example.com" style="width: 300px; font-size: 90%">
+      <input type="submit" value="Submit" style="font-size: 150%">
     </form>
+    <p><a href="/urls">[Return to home]</a></p>
   </body>
 </html>
