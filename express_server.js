@@ -21,6 +21,18 @@ app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.post("/urls/:id/delete", (req, res) => {
+  delete urlDatabase[req.params.id];
+  res.redirect("/urls")
+});
+
+app.get("/urls", (req, res) => {
+  res.render("urls_index", {
+    URLid: urlDatabase[req.params.id],
+    urls: urlDatabase
+  });
+});
+
 app.get("/u/:shortURL", (req, res) => {
   var key = req.params.shortURL;
   let longURL = urlDatabase[key];
@@ -35,16 +47,11 @@ app.post("/urls", (req, res) => {
   console.log(req.body);
   var shortURL = random();
   var longURL = req.body.longURL;
-  var newURL = 'http://192.168.0.22:8080/u/' + shortURL;
+  var newURL = 'http://localhost:8080/u/' + shortURL;
   urlDatabase[shortURL] = longURL;
   res.send(`<html><body>Your new short url is --> ${newURL}<p><a href= "${newURL}" target="_blank">[Open in new window/tab]</a><p><a href="/urls">[Return to home]</a></p></p></body></html>`);
 });
 
-app.get("/urls", (req, res) => {
-  res.render("urls_index", {
-    urls: urlDatabase
-  });
-});
 
 app.get("/urls/:id", (req, res) => {
   let valueofDb = urlDatabase[req.params.id];
@@ -52,7 +59,6 @@ app.get("/urls/:id", (req, res) => {
     shortURL: req.params.id,
     orgURL: valueofDb
   });
-  res.redirect(orgURL);
 });
 
 app.get("/", (req, res) => {
@@ -69,4 +75,5 @@ app.get("/hello", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
+  console.log('... Success!')
 });

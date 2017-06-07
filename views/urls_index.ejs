@@ -10,7 +10,7 @@
       font-family: 'Ultra', sans-serif;
       margin: 30px 0 0 435px;
       line-height: 2;
-      text-align: center;
+      text-align: left;
       font-size: 95%;
     }
     h2 {
@@ -38,7 +38,12 @@
       </td>
       <td style="list-style-type:none">
         <% for(var index in urls) {%>
-          <li><a href="/urls/<%= index %>"><%= index %></a></li>
+          <li>
+            <form method="POST" action="/urls/<%= index %>/delete">
+              <a href="/urls/<%= index %>"><%= index %></a>
+              <button onclick="<% delete URLid %>">delete this shit</button>
+            </form>
+          </li>
         <% } %>
       </td>
     </tr>
