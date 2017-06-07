@@ -1,13 +1,35 @@
 const express = require("express");
 var app = express();
 var PORT = process.env.PORT || 8080; // default port 8080
-
-app.set("view engine", "ejs");
-
+const bodyParser = require("body-parser");
 var urlDatabase = {
   "b2xVn2": "http://www.lighthouselabs.ca",
   "9sm5xK": "http://www.google.com"
 };
+
+function generateRandomString() {
+  var newID = "";
+  var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+  for(var i = 0; i <= 6; i++) {
+    newID += possible.charAt(Math.floor(Math.random() * possible.length));
+  }
+    return newID;
+}
+
+app.set("view engine", "ejs");
+
+
+app.use(bodyParser.urlencoded({extended: true}));
+
+app.get("/urls/new", (req, res) => {
+  res.render("urls_new");
+});
+
+app.post("/urls", (req, res) => {
+  console.log(req.body);
+  res.send("Ok");
+});
 
 app.get("/urls", (req, res) => {
   res.render("urls_index", {
@@ -36,5 +58,5 @@ app.get("/hello", (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Example app listening on port ${PORT}!`);
+  console.log(`Listening on port ${PORT}!`);
 });
