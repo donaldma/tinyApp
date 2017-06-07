@@ -24,11 +24,11 @@
 <body>
   <% include partials/_header.ejs %>
   <p><a href="/urls/new">[Click here to shorten a new URL]</a></p>
-  <h2>URL History</h2>
+  <h2>URL Index</h2>
   <table style="width:40%">
     <tr>
       <th>Original URL</th>
-      <th>Shortened URL<br>(Click for details)</br></th>
+      <th>Shortened URL</th>
     </tr>
     <tr>
       <td style="list-style-type:none">
@@ -40,8 +40,8 @@
         <% for(var index in urls) {%>
           <li>
             <form method="POST" action="/urls/<%= index %>/delete">
-              <a href="/urls/<%= index %>"><%= index %></a>
-              <button onclick="<% delete URLid %>">delete this shit</button>
+              <%= index %> <a href="/urls/<%= index %>">Edit</a>
+              <button>Delete</button>
             </form>
           </li>
         <% } %>

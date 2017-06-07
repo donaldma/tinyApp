@@ -7,7 +7,7 @@
         padding: 15px;
         border: 1px solid black;
         border-collapse: collapse;
-        margin: 30px 0 0 430px;
+        margin: auto;
         font-family: 'Ultra', sans-serif;
         font-size: 100%;
         text-align: center;
@@ -24,7 +24,7 @@
   <body>
     <% include partials/_header.ejs %>
     <h2>URL Details</h2>
-    <table style="width:40%">
+    <table style="width:50%">
       <tr>
         <th>Shortened URL</th>
         <th>Original URL</th>
@@ -34,7 +34,11 @@
           <%= shortURL %>
         </td>
         <td>
-          <%= orgURL %>
+          <form action="/urls/<%= shortURL %>/update" method="POST" style="font-family: 'Ultra', sans-serif;font-size: 15px;">
+            <label for="longURL">Enter a URL:</label>
+            <input id="longURL" type="text" name="longURL" value="<%= orgURL %>" style="width: 300px; font-size: 90%">
+            <input type="submit" value="Update" style="font-size: 150%">
+          </form>
         </td>
       </tr>
     </table>

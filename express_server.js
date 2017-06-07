@@ -21,6 +21,11 @@ app.set("view engine", "ejs");
 
 app.use(bodyParser.urlencoded({extended: true}));
 
+app.post("/urls/:id/update", (req,res) => {
+  urlDatabase[req.params.id] = req.body.longURL
+  res.redirect("/urls")
+});
+
 app.post("/urls/:id/delete", (req, res) => {
   delete urlDatabase[req.params.id];
   res.redirect("/urls")
@@ -28,7 +33,6 @@ app.post("/urls/:id/delete", (req, res) => {
 
 app.get("/urls", (req, res) => {
   res.render("urls_index", {
-    URLid: urlDatabase[req.params.id],
     urls: urlDatabase
   });
 });
@@ -51,7 +55,6 @@ app.post("/urls", (req, res) => {
   urlDatabase[shortURL] = longURL;
   res.send(`<html><body>Your new short url is --> ${newURL}<p><a href= "${newURL}" target="_blank">[Open in new window/tab]</a><p><a href="/urls">[Return to home]</a></p></p></body></html>`);
 });
-
 
 app.get("/urls/:id", (req, res) => {
   let valueofDb = urlDatabase[req.params.id];
