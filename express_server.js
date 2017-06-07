@@ -7,11 +7,11 @@ var urlDatabase = {
   "9sm5xK": "http://www.google.com"
 };
 
-function generateRandomString() {
+const random = function generateRandomString() {
   var newID = "";
   var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
-  for(var i = 0; i <= 6; i++) {
+  for(var i = 0; i < 6; i++) {
     newID += possible.charAt(Math.floor(Math.random() * possible.length));
   }
     return newID;
@@ -19,8 +19,13 @@ function generateRandomString() {
 
 app.set("view engine", "ejs");
 
-
 app.use(bodyParser.urlencoded({extended: true}));
+
+app.get("/u/:shortURL", (req, res) => {
+    var key = req.params.shortURL;
+    let longURL = urlDatabase[key];
+    res.render("urs_post.ejs")
+});
 
 app.get("/urls/new", (req, res) => {
   res.render("urls_new");
@@ -28,7 +33,11 @@ app.get("/urls/new", (req, res) => {
 
 app.post("/urls", (req, res) => {
   console.log(req.body);
-  res.send("Ok");
+  var shortURL = random()
+  var longURL = req.body.longURL
+  var newURL = 'http://localhost:8080/u/' + shortURL
+  urlDatabase[shortURL] = longURL
+  res.send("Your new short url is --> " + newURL);
 });
 
 app.get("/urls", (req, res) => {
