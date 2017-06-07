@@ -24,7 +24,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get("/u/:shortURL", (req, res) => {
     var key = req.params.shortURL;
     let longURL = urlDatabase[key];
-    res.render("urs_post.ejs")
+    res.redirect(longURL);
 });
 
 app.get("/urls/new", (req, res) => {
