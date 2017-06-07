@@ -37,7 +37,7 @@ app.post("/urls", (req, res) => {
   var longURL = req.body.longURL
   var newURL = 'http://localhost:8080/u/' + shortURL
   urlDatabase[shortURL] = longURL
-  res.send("Your new short url is --> " + newURL);
+  res.send(`<html><body>Your new short url is --> <a href= "${newURL}">${newURL}</a></body></html>`);
 });
 
 app.get("/urls", (req, res) => {
