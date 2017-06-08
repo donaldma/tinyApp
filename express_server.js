@@ -79,9 +79,8 @@ app.get("/urls/:id", (req, res) => {
   let templateVars = {
     username: req.cookies["username"],
     shortURL: req.params.id,
-    orgURL: valueofDb
+    orgURL: urlDatabase[req.params.id]
   };
-  let valueofDb = urlDatabase[req.params.id];
   res.render("urls_show", templateVars)
 });
 

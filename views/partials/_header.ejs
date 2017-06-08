@@ -26,7 +26,6 @@
         <input type="submit" value="Log in" style="font-size: 150%">
       </form>
       <% if(username){ %>
-        Login Successful...
         <form action="/logout" method="POST">
           <label for="username">Welcome <%=username%>!</label>
           <input type="submit" value="Log out" style="font-size: 150%">
