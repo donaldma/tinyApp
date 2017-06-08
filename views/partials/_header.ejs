@@ -1,18 +1,36 @@
-<header>
-    <style>
-      h1 {
-        margin: 1em 0 0.5em 0;
-        color: #FF16F4;
-        font-weight: heavy;
-        font-family: 'Ultra', sans-serif;
-        font-size: 50px;
-        line-height: 42px;
-        text-transform: uppercase;
-        text-align: center;
-        text-shadow: 0 2px white, 0 3px #777;}
-
-
-    </style>
-    <h1>Tiny URL Wannabe</h1>
-</header>
-
+<html>
+  <body>
+    <header>
+      <style>
+        h1 {
+          margin: 1em 0 0.5em 0;
+          color: #FF16F4;
+          font-weight: heavy;
+          font-family: 'Ultra', sans-serif;
+          font-size: 50px;
+          line-height: 42px;
+          text-transform: uppercase;
+          text-align: center;
+          text-shadow: 0 2px white, 0 3px #777;}
+        form {
+          text-align: left;
+          font-family: 'Ultra', sans-serif;
+          font-size: 15px;
+        }
+      </style>
+      <h1>Tiny URL Wannabe</h1>
+    </header>
+      <form action="/login" method="POST">
+        <label for="username">Username:</label>
+        <input id="username" type="text" name="username" style="width: 200px; font-size: 90%">
+        <input type="submit" value="Log in" style="font-size: 150%">
+      </form>
+      <% if(username){ %>
+        Login Successful...
+        <form action="/logout" method="POST">
+          <label for="username">Welcome <%=username%>!</label>
+          <input type="submit" value="Log out" style="font-size: 150%">
+        </form>
+      <% } %>
+  </body>
+</html>
