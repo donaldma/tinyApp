@@ -97,10 +97,20 @@ app.post("/urls/:id/delete", (req, res) => {
   res.redirect("/urls")
 });
 
-app.get("/u/:shortURL", (req, res) => {
+app.get("/u/:shortURL/:id", (req, res) => {
   var key = req.params.shortURL;
   let longURL = urlDatabase[key];
   res.redirect(longURL);
+});
+
+app.post("/urls", (req, res) => {
+  console.log(req.body);
+  var shortURL = random();
+  var longURL = req.body.longURL;
+  let users = user[req.cookies["userid"]].id
+  var newURL = 'http://localhost:8080/u/' + shortURL + '/' + users;
+  urlDatabase[shortURL] = longURL;
+  res.send(`<html><body>Your new short url is --> ${newURL}<p><a href= "${newURL}" target="_blank">[Open in new window/tab]</a><p><a href="/urls">[Return to home]</a></p></p></body></html>`);
 });
 
 app.get("/login", (req, res) => {
@@ -139,15 +149,6 @@ app.get("/urls/:id", (req, res) => {
     orgURL: urlDatabase[req.params.id],
   };
   res.render("urls_show", templateVars)
-});
-
-app.post("/urls", (req, res) => {
-  console.log(req.body);
-  var shortURL = random();
-  var longURL = req.body.longURL;
-  var newURL = 'http://localhost:8080/u/' + shortURL;
-  urlDatabase[shortURL] = longURL;
-  res.send(`<html><body>Your new short url is --> ${newURL}<p><a href= "${newURL}" target="_blank">[Open in new window/tab]</a><p><a href="/urls">[Return to home]</a></p></p></body></html>`);
 });
 
 app.listen(PORT, () => {

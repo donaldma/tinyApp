@@ -23,7 +23,11 @@
 </head>
 <body>
   <% include partials/_header.ejs %>
+  <% if (users) { %>
   <p><a href="/urls/new">[Click here to shorten a new URL]</a></p>
+  <% } else { %>
+  <p><a href="/login">[Click here to shorten a new URL]</a></p>
+  <% } %>
   <h2>URL Index</h2>
   <table style="width:40%">
     <tr>
