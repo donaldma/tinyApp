@@ -20,16 +20,15 @@
       </style>
       <h1>Tiny URL Wannabe</h1>
     </header>
-      <form action="/login" method="POST">
-        <label for="username">Username:</label>
-        <input id="username" type="text" name="username" style="width: 200px; font-size: 90%">
-        <input type="submit" value="Log in" style="font-size: 150%">
-      </form>
-      <% if(username){ %>
-        <form action="/logout" method="POST">
-          <label for="username">Welcome <%=username%>!</label>
+      <% if(users){ %>
+        <form action="/logout" method="POST"><br>
+          Welcome to the best website in the world,<br>
+          enjoy your stay!<br><br>
           <input type="submit" value="Log out" style="font-size: 150%">
         </form>
+      <% } else { %>
+        <button><a href="/login">Login</a></button><br><br>
+        <button><a href="/register">Register</a></button><br>
       <% } %>
   </body>
 </html>
