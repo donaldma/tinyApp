@@ -3,7 +3,8 @@
     <header>
       <style>
         h1 {
-          margin: 1em 0 0.5em 0;
+          margin: auto;
+          width: 50%;
           color: #FF16F4;
           font-weight: heavy;
           font-family: 'Ultra', sans-serif;
@@ -22,8 +23,8 @@
     </header>
       <% if(userid){ %>
         <form action="/logout" method="POST"><br>
-          Welcome to the best website in the world,<br>
-          enjoy your stay!<br><br>
+          <p style="font-size: 25px; margin: 0; font-weight: bold;">Welcome to the best website in the world,<br>
+          enjoy your stay!<br><br></p>
           <input type="submit" value="Log out" style="font-size: 150%">
         </form>
       <% } else { %>

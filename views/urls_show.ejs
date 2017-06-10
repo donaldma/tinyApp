@@ -27,14 +27,14 @@
     <table style="width:50%">
       <tr>
         <th>Shortened URL</th>
-        <th>Original URL</th>
+        <th>Edit Original URL</th>
       </tr>
       <tr>
         <td>
           <%= shortURL %>
         </td>
         <td>
-          <form action="/urls/<%= shortURL %>/update" method="POST" style="font-family: 'Ultra', sans-serif;font-size: 15px;">
+          <form action="/urls/<%= shortURL %>" method="POST" style="font-family: 'Ultra', sans-serif;font-size: 15px;">
             <label for="longURL">Enter a URL:</label>
             <input id="longURL" type="text" name="longURL" value="<%= orgURL %>" style="width: 350px; font-size: 90%">
             <input type="submit" value="Update" style="font-size: 150%">
@@ -42,7 +42,8 @@
         </td>
       </tr>
     </table>
-    <p><a href= "/u/<%= shortURL %>" target="_blank">[Open your new link in new window/tab]</a><p>
+    <p>Your new short URL is : http://localhost:8080/u/<%= shortURL %></p>
+    <p><a href= "/u/<%= shortURL %>" target="_blank">[Open in new window/tab]</a><p>
     <p><a href="/urls">[Return to home]</a></p>
   </body>
 </html>
