@@ -23,7 +23,7 @@
 </head>
 <body>
   <% include partials/_header.ejs %>
-  <% if (users) { %>
+  <% if (userid) { %>
   <p><a href="/urls/new">[Click here to shorten a new URL]</a></p>
   <% } else { %>
   <p><a href="/login">[Click here to shorten a new URL]</a></p>
@@ -37,7 +37,7 @@
     <tr>
       <td style="list-style-type:none">
         <% for(var index in urls) {%>
-          <li><%= urls[index]%></li>
+          <li><%= urls[index].longURL %></li>
         <% } %>
       </td>
       <td style="list-style-type:none">
