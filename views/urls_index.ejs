@@ -1,57 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <title>TinyApp</title>
-  <style>
-    table, th, td {
-      padding: 5px;
-      border: 1px solid black;
-      border-collapse: collapse;
-      font-family: 'Ultra', sans-serif;
-      margin: 30px 0 0 435px;
-      line-height: 2;
-      text-align: left;
-      font-size: 95%;
-    }
-    h2 {
-      margin: 20px 0 0 650px;
-      font-family: 'Ultra', sans-serif;
-    }
-    p {
-      margin: 0 0 0 600px;
-    }
-  </style>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
 </head>
+
 <body>
-  <% include partials/_header.ejs %>
-  <% if (userid) { %>
-  <p><a href="/urls/new">[Click here to shorten a new URL]</a></p>
-  <% } else { %>
-  <p><a href="/login">[Click here to shorten a new URL]</a></p>
-  <% } %>
-  <h2>URL Index</h2>
-  <table style="width:40%">
-    <tr>
-      <th>Original URL</th>
-      <th>Shortened URL</th>
-    </tr>
-    <tr>
-      <td style="list-style-type:none">
-        <% for(var index in urls) {%>
-          <li><%= urls[index].longURL %></li>
-        <% } %>
-      </td>
-      <td style="list-style-type:none">
-        <% for(var index in urls) {%>
-          <li>
-            <form method="POST" action="/urls/<%= index %>/delete">
-              <%= index %> <a href="/urls/<%= index %>">Edit</a>
-              <button>Delete</button>
-            </form>
-          </li>
-      </td>
-    </tr>
-  </table>
-  <% } %>
+  <div class="container">
+    <% include partials/_header.ejs %>
+      <h2>URL Index</h2>
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Original URL</th>
+              <th>Shortened URL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td style="line-height: 50px">
+                <ul class="list-group">
+                  <% for(var index in urls) {%>
+                    <li class="list-group-item" style="border: none">
+                      <%= urls[index].longURL %>
+                    </li>
+                    <% } %>
+                </ul>
+              </td>
+              <td style="line-height: 50px">
+                <ul class="list-group">
+                  <% for(var index in urls) {%>
+                    <li class="list-group-item" style="border: none">
+                      <form method="POST" action="/urls/<%= index %>/delete">
+                        <%= index %> <a href="/urls/<%= index %>" class="btn btn-default">Edit</a>
+                          <button class="btn btn-default">Delete</button>
+                      </form>
+                      <% } %>
+                    </li>
+                </ul>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 </body>
+
 </html>

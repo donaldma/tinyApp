@@ -1,35 +1,31 @@
 <html>
-  <body>
-    <header>
-      <style>
-        h1 {
-          margin: auto;
-          width: 50%;
-          color: #FF16F4;
-          font-weight: heavy;
-          font-family: 'Ultra', sans-serif;
-          font-size: 50px;
-          line-height: 42px;
-          text-transform: uppercase;
-          text-align: center;
-          text-shadow: 0 2px white, 0 3px #777;}
-        form {
-          text-align: left;
-          font-family: 'Ultra', sans-serif;
-          font-size: 15px;
-        }
-      </style>
-      <h1>Tiny URL Wannabe</h1>
-    </header>
-      <% if(userid){ %>
-        <form action="/logout" method="POST"><br>
-          <p style="font-size: 25px; margin: 0; font-weight: bold;">Welcome to the best website in the world,<br>
-          enjoy your stay!<br><br></p>
-          <input type="submit" value="Log out" style="font-size: 150%">
-        </form>
-      <% } else { %>
-        <button><a href="/login">Login</a></button><br><br>
-        <button><a href="/register">Register</a></button><br>
-      <% } %>
-  </body>
+
+<head>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+</head>
+
+<body>
+  <div class="container">
+    <img src="http://i.imgur.com/R8UeOMC.png" style="width: 100%">
+
+    <div class="col-md-6 col-md-offset-3">
+      <div style="text-align:center">
+        <% if(userid){ %>
+          <form action="/logout" method="POST"><br>
+            <input type="submit" value="Log out" class="btn btn-default">
+          </form>
+          <br>
+          <p><a href="/urls/new" class="btn btn-default">Click here to shorten a new URL</a></p>
+          <br>
+          <% } else { %>
+            <button><a href="/login" class="btn btn-default">Login</a></button><br><br>
+            <button><a href="/register" class="btn btn-default">Register</a></button><br>
+            <p><a href="/login" class="btn btn-default">Click here to shorten a new URL</a></p>
+            <% } %>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>

@@ -1,49 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>TinyApp</title>
-    <style>
-      table, th, td {
-        padding: 15px;
-        border: 1px solid black;
-        border-collapse: collapse;
-        margin: 0 0 0 360px;
-        font-family: 'Ultra', sans-serif;
-        font-size: 100%;
-        text-align: center;
-      }
-      h2 {
-        margin: 0 0 20px 650px;
-        font-family: 'Ultra', sans-serif;
-      }
-      p {
-        margin: 20px 0 0 360px;
-      }
-    </style>
-  </head>
-  <body>
-    <% include partials/_header.ejs %>
-    <h2>URL Details</h2>
-    <table style="width:50%">
-      <tr>
-        <th>Shortened URL</th>
-        <th>Edit Original URL</th>
-      </tr>
-      <tr>
-        <td>
-          <%= shortURL %>
-        </td>
-        <td>
-          <form action="/urls/<%= shortURL %>" method="POST" style="font-family: 'Ultra', sans-serif;font-size: 15px;">
-            <label for="longURL">Enter a URL:</label>
-            <input id="longURL" type="text" name="longURL" value="<%= orgURL %>" style="width: 350px; font-size: 90%">
-            <input type="submit" value="Update" style="font-size: 150%">
-          </form>
-        </td>
-      </tr>
-    </table>
-    <p>Your new short URL is : http://localhost:8080/u/<%= shortURL %></p>
-    <p><a href= "/u/<%= shortURL %>" target="_blank">[Open in new window/tab]</a><p>
-    <p><a href="/urls">[Return to home]</a></p>
-  </body>
+
+<head>
+  <title>TinyApp</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <% include partials/_header.ejs %>
+    <div class="container">
+      <h2>URL Details</h2>
+      <div class="table-responsive">
+        <table class="table">
+          <tr>
+            <th>Shortened URL</th>
+            <th>Edit Original URL</th>
+          </tr>
+          <tr>
+            <td>
+              <%= shortURL %>
+            </td>
+            <td>
+              <form action="/urls/<%= shortURL %>" class="form-group" method="POST">
+                <label for="longURL">Enter a URL:</label>
+                <input id="longURL" type="text" name="longURL" class="form-control" value="<%= orgURL %>">
+                <br>
+                <input type="submit" value="Update" class="btn btn-default">
+              </form>
+            </td>
+          </tr>
+        </table>
+        <p>Your new short URL is : <a href="/u/<%= shortURL %>" target="_blank">http://localhost:8080/u/<%= shortURL %></a></p>
+        <br>
+        <p><a href="/urls" class="btn btn-default">Return to home</a></p>
+      </div>
+</body>
+
 </html>

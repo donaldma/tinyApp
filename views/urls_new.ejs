@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>TinyApp</title>
-    <style>
-      p {
-        margin: 50px 0 0 470px;
-      }
-    </style>
-  </head>
-  <body>
+
+<head>
+  <title>TinyApp</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
+
+</head>
+
+<body>
+  <div class="container">
     <% include partials/_header %>
-    <form action="/urls" method="POST" style="margin: 80px 0  0 470px; font-family: 'Ultra', sans-serif;font-size: 20px;">
-      <label for="longURL">Enter a URL:</label>
-      <input id="longURL" type="text" name="longURL" value="http://" style="width: 300px; font-size: 90%">
-      <input type="submit" value="Submit" style="font-size: 150%">
-    </form>
-    <p><a href="/urls">[Return to home]</a></p>
-  </body>
+      <form action="/urls" class="form-group" method="POST">
+        <label for="longURL">Enter a URL:</label>
+        <input id="longURL" type="text" name="longURL" class="form-control" value="http://">
+        <br>
+        <input type="submit" class="btn btn-default" value="Submit">
+      </form>
+      <p><a href="/urls" class="btn btn-default">Return to home</a></p>
+  </div>
+</body>
+
 </html>

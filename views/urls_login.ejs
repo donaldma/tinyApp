@@ -1,20 +1,37 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta charset="utf-8">
   <title>TinyApp Login</title>
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css">
 </head>
+
 <body>
-  <h2>Login</h2>
-  <form action="/login" method="POST">
-  Email:<br>
-  <input type="email" name="email" placeholder="example@example.com" style="width: 200px; font-size: 90%"><br><br>
-  Password:<br>
-  <input type="password" name="password" style="width: 200px; font-size: 90%"><br><br>
-  <input type="submit" value="Log in" style="font-size: 150%"><br><br>
-  </form><br>
-  <a href="/register">[Register for new account]</a><br><br>
-  <a href="/urls">[Return to home]</a>
-</form>
+  <div class="container">
+    <img src="http://i.imgur.com/R8UeOMC.png" style="width: 100%">
+
+    <div class="col-md-8 col-md-offset-2">
+      <h2>Login</h2>
+      <br>
+      <form style="padding-bottom: 40px; border-bottom: 1px solid lightgrey" class="form-group" action="/login" method="POST">
+        <label for="email">Email:</label>
+        <input type="email" class="form-control" name="email" placeholder="example@example.com">
+        <br>
+        <label for="email">Password:</label>
+        <input type="password" class="form-control" name="password">
+        <br>
+        <input type="submit" class="btn btn-default" value="Log in">
+        <br>
+      </form>
+      <br>
+      <p><a href="/register" class="btn btn-default">Register for a new account</a></p>
+      <p>or</p>
+      <p><a href="/urls" class="btn btn-default">Return to home</a></p>
+      </form>
+    </div>
+  </div>
 </body>
+
 </html>

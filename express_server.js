@@ -27,7 +27,8 @@ app.use('/urls', (req, res, next) => {
   if(req.session.userid) {
     next();
   } else {
-    res.status(403).send('Must be logged in to access this page<br><br><a href="/login">Go to Login page</a> / <a href="/register">Go to Register page</a>');
+    res.redirect("/error");
+    res.status(403);
   }
 });
 
@@ -79,7 +80,7 @@ app.get("/", (req, res) => {
   if (req.session.userid) {
     res.redirect("/urls");
   } else {
-    res.send('<h1>Welcome to TinyApp Wannabe</h1><p><a href="/login">Login</a> / <a href="/register">Register</a>');
+    res.render("urls_homepage");
   }
 });
 
@@ -218,7 +219,10 @@ app.post("/logout", (req, res) => {
   res.redirect("/urls");
 });
 
-//listens to port 8080
+app.get("/error", (req, res) => {
+  res.render("urls_error");
+});
+// listens to port 8080
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}...`);
