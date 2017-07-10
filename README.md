@@ -4,17 +4,14 @@ TinyApp is a full stack web application built with Node and Express that allows 
 
 ## Final Product
 
-!["/"](https://github.com/donaldma/tinyApp/blob/master/docs/:)
-!["/login (Email:password is incorret)"](https://github.com/donaldma/tinyApp/blob/master/docs/:login%20(Email:password%20is%20incorret))
-!["/login"](https://github.com/donaldma/tinyApp/blob/master/docs/:login.png)
-!["/register (Email already taken)"](https://github.com/donaldma/tinyApp/blob/master/docs/:register%20(Email%20already%20taken).png)
-!["/register (when email:password field is empty)"](https://github.com/donaldma/tinyApp/blob/master/docs/:register%20(when%20email:password%20field%20is%20empty).png)
-!["/register"](https://github.com/donaldma/tinyApp/blob/master/docs/:register.png)
-!["/urls (when logged in with links)"](https://github.com/donaldma/tinyApp/blob/master/docs/:urls%20(when%20logged%20in%20with%20links).png)
-!["/urls (when logged in with no links)"](https://github.com/donaldma/tinyApp/blob/master/docs/:urls%20(when%20logged%20in%20with%20no%20links).png)
-!["/urls (when not logged in)"](https://github.com/donaldma/tinyApp/blob/master/docs/:urls%20(when%20not%20logged%20in).png)
-!["/urls/id"](https://github.com/donaldma/tinyApp/blob/master/docs/:urls:id.png)
-!["/urls:new"](https://github.com/donaldma/tinyApp/blob/master/docs/:urls:new.png)
+!["home"](https://github.com/donaldma/tinyApp/blob/master/docs/home)
+!["login"](https://github.com/donaldma/tinyApp/blob/master/docs/login)
+!["register"](https://github.com/donaldma/tinyApp/blob/master/docs/register.png)
+!["new"](https://github.com/donaldma/tinyApp/blob/master/docs/new.png)
+!["index"](https://github.com/donaldma/tinyApp/blob/master/docs/index.png)
+!["show"](https://github.com/donaldma/tinyApp/blob/master/docs/show.png)
+!["error"](https://github.com/donaldma/tinyApp/blob/master/docs/error.png)
+
 
 ## Dependencies
 
